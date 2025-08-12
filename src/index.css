@@ -1367,3 +1367,11 @@ html {
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-from), var(--tw-gradient-to));
 }
+
+footer a {
+  color: #d1d5db !important;
+}
+
+footer a:hover {
+  color: #ffffff !important;
+}

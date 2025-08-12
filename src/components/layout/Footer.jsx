@@ -23,7 +23,7 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/about" 
-                  className="hover:text-white transition-colors !text-gray-300"
+                  className="!text-gray-300"
                   style={{ color: '#d1d5db' }}
                 >
                   About Us
@@ -32,7 +32,7 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/competencies" 
-                  className="hover:text-white transition-colors !text-gray-300"
+                  className="!text-gray-300"
                   style={{ color: '#d1d5db' }}
                 >
                   Core Competencies
@@ -41,7 +41,7 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/quality" 
-                  className="hover:text-white transition-colors !text-gray-300"
+                  className="!text-gray-300"
                   style={{ color: '#d1d5db' }}
                 >
                   Quality & Security
@@ -50,7 +50,7 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/contact" 
-                  className="hover:text-white transition-colors !text-gray-300"
+                  className="!text-gray-300"
                   style={{ color: '#d1d5db' }}
                 >
                   Contact
