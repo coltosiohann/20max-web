@@ -21,22 +21,38 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-300">
               <li>
-                <Link to="/about" className="hover:text-white transition-colors">
+                <Link 
+                  to="/about" 
+                  className="hover:text-white transition-colors !text-gray-300"
+                  style={{ color: '#d1d5db' }}
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/competencies" className="hover:text-white transition-colors">
+                <Link 
+                  to="/competencies" 
+                  className="hover:text-white transition-colors !text-gray-300"
+                  style={{ color: '#d1d5db' }}
+                >
                   Core Competencies
                 </Link>
               </li>
               <li>
-                <Link to="/quality" className="hover:text-white transition-colors">
+                <Link 
+                  to="/quality" 
+                  className="hover:text-white transition-colors !text-gray-300"
+                  style={{ color: '#d1d5db' }}
+                >
                   Quality & Security
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-white transition-colors">
+                <Link 
+                  to="/contact" 
+                  className="hover:text-white transition-colors !text-gray-300"
+                  style={{ color: '#d1d5db' }}
+                >
                   Contact
                 </Link>
               </li>
