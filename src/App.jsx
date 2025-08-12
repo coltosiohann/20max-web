@@ -13,7 +13,7 @@ import ComponentShowcase from './pages/ComponentShowcase'
 
 function App() {
   return (
-    <Router basename="/20max-website">
+    <Router basename="/20max-web">
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
