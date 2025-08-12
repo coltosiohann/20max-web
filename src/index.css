@@ -1,0 +1,1369 @@
+/* src/index.css - Complete 20MAX Theme System */
+@import "tailwindcss/preflight";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind utilities;
+/* ================================================================
+   20MAX DESIGN SYSTEM - Inspired by Engineering Excellence
+   Color Palette: Professional Grays + Engineering Blue + 20MAX Red
+   ================================================================ */
+
+:root {
+  /* 20MAX Brand Colors */
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fee2e2;
+  --color-primary-200: #fecaca;
+  --color-primary-300: #fca5a5;
+  --color-primary-400: #f87171;
+  --color-primary-500: #ef4444;
+  --color-primary-600: #dc2626;  /* Main 20MAX Red */
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
+  
+  /* Engineering Professional Grays */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  
+  /* Engineering Blue (Secondary) */
+  --color-secondary-50: #eff6ff;
+  --color-secondary-100: #dbeafe;
+  --color-secondary-200: #bfdbfe;
+  --color-secondary-300: #93c5fd;
+  --color-secondary-400: #60a5fa;
+  --color-secondary-500: #3b82f6;
+  --color-secondary-600: #2563eb;
+  --color-secondary-700: #1d4ed8;
+  --color-secondary-800: #1e40af;
+  --color-secondary-900: #1e3a8a;
+  
+  /* Success/Warning/Error */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  
+  /* Typography Scale */
+  --font-family-heading: 'Montserrat', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+  
+  /* Font Sizes - Engineering Precision Scale */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+  --text-6xl: 3.75rem;    /* 60px */
+  --text-7xl: 4.5rem;     /* 72px */
+  
+  /* Spacing System - 8pt Grid */
+  --space-1: 0.25rem;     /* 4px */
+  --space-2: 0.5rem;      /* 8px */
+  --space-3: 0.75rem;     /* 12px */
+  --space-4: 1rem;        /* 16px */
+  --space-5: 1.25rem;     /* 20px */
+  --space-6: 1.5rem;      /* 24px */
+  --space-8: 2rem;        /* 32px */
+  --space-10: 2.5rem;     /* 40px */
+  --space-12: 3rem;       /* 48px */
+  --space-16: 4rem;       /* 64px */
+  --space-20: 5rem;       /* 80px */
+  --space-24: 6rem;       /* 96px */
+  
+  /* Border Radius */
+  --radius-sm: 0.125rem;  /* 2px */
+  --radius-md: 0.375rem;  /* 6px */
+  --radius-lg: 0.5rem;    /* 8px */
+  --radius-xl: 0.75rem;   /* 12px */
+  --radius-2xl: 1rem;     /* 16px */
+  --radius-full: 9999px;
+  
+  /* Shadows - Professional Engineering Look */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Engineering Gradients */
+  --gradient-hero: linear-gradient(135deg, var(--color-neutral-900) 0%, var(--color-neutral-800) 50%, var(--color-primary-900) 100%);
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  --gradient-button: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
+}
+
+/* ================================================================
+   RESET & BASE STYLES
+   ================================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-neutral-800);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================================================
+   TYPOGRAPHY SYSTEM
+   ================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-neutral-900);
+  margin-bottom: var(--space-4);
+}
+
+h1 { font-size: var(--text-5xl); font-weight: 700; }
+h2 { font-size: var(--text-4xl); font-weight: 600; }
+h3 { font-size: var(--text-3xl); font-weight: 600; }
+h4 { font-size: var(--text-2xl); font-weight: 600; }
+h5 { font-size: var(--text-xl); font-weight: 600; }
+h6 { font-size: var(--text-lg); font-weight: 500; }
+
+p {
+  margin-bottom: var(--space-4);
+  color: var(--color-neutral-700);
+}
+
+.text-hero {
+  font-size: var(--text-6xl);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.text-display {
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text-lead {
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--color-neutral-600);
+}
+
+.text-small {
+  font-size: var(--text-sm);
+  color: var(--color-neutral-600);
+}
+
+/* ================================================================
+   20MAX BRAND COMPONENTS
+   ================================================================ */
+
+/* Logo Styling */
+.logo-20max {
+  font-family: var(--font-family-heading);
+  font-weight: 800;
+  font-size: var(--text-3xl);
+  color: var(--color-primary-600);
+}
+
+.logo-20max .logo-max {
+  color: var(--color-neutral-900);
+}
+
+/* ================================================================
+   BUTTON SYSTEM
+   ================================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-family-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-primary-200);
+  outline-offset: 2px;
+}
+
+/* Primary Button - 20MAX Red */
+.btn-primary {
+  background: var(--gradient-button);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-700);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+/* Secondary Button - Engineering Blue */
+.btn-secondary {
+  background: var(--color-secondary-600);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary-700);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary-600);
+  border: 2px solid var(--color-primary-600);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary-600);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-neutral-700);
+}
+
+.btn-ghost:hover {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-900);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: var(--space-2) var(--space-6);
+  font-size: var(--text-sm);
+}
+
+.btn-lg {
+  padding: var(--space-4) var(--space-10);
+  font-size: var(--text-lg);
+}
+
+.btn-xl {
+  padding: var(--space-5) var(--space-12);
+  font-size: var(--text-xl);
+}
+
+/* ================================================================
+   CARD SYSTEM
+   ================================================================ */
+
+.card {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.card-body {
+  padding: var(--space-6);
+}
+
+.card-footer {
+  padding: var(--space-6);
+  background: var(--color-neutral-50);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+/* Feature Card */
+.feature-card {
+  background: white;
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--color-neutral-200);
+}
+
+.feature-card:hover {
+  box-shadow: var(--shadow-2xl);
+  transform: translateY(-4px);
+  border-color: var(--color-primary-200);
+}
+
+.feature-icon {
+  width: 4rem;
+  height: 4rem;
+  background: var(--color-primary-100);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-6);
+  color: var(--color-primary-600);
+}
+
+/* ================================================================
+   UTILITY CLASSES - 20MAX Design System
+   ================================================================ */
+
+/* Backgrounds */
+.bg-primary { background-color: var(--color-primary-600); }
+.bg-primary-50 { background-color: var(--color-primary-50); }
+.bg-primary-100 { background-color: var(--color-primary-100); }
+.bg-primary-light { background-color: var(--color-primary-100); }
+.bg-secondary { background-color: var(--color-secondary-600); }
+.bg-neutral-50 { background-color: var(--color-neutral-50); }
+.bg-neutral-100 { background-color: var(--color-neutral-100); }
+.bg-neutral-800 { background-color: var(--color-neutral-800); }
+.bg-neutral-900 { background-color: var(--color-neutral-900); }
+.bg-white { background-color: white; }
+
+/* Gradients */
+.bg-gradient-hero { background: var(--gradient-hero); }
+.bg-gradient-card { background: var(--gradient-card); }
+
+/* Text Colors */
+.text-primary { color: var(--color-primary-600); }
+.text-primary-light { color: var(--color-primary-500); }
+.text-secondary { color: var(--color-secondary-600); }
+.text-white { color: white; }
+.text-neutral-600 { color: var(--color-neutral-600); }
+.text-neutral-700 { color: var(--color-neutral-700); }
+.text-neutral-800 { color: var(--color-neutral-800); }
+.text-neutral-900 { color: var(--color-neutral-900); }
+
+/* Shadows */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+.shadow-2xl { box-shadow: var(--shadow-2xl); }
+
+/* Border Radius */
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* Spacing */
+.p-2 { padding: var(--space-2); }
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+.px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+.px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+.py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+.py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+.py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+.py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+.py-16 { padding-top: var(--space-16); padding-bottom: var(--space-16); }
+.py-20 { padding-top: var(--space-20); padding-bottom: var(--space-20); }
+
+.m-4 { margin: var(--space-4); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-12 { margin-bottom: var(--space-12); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Layout */
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.max-w-7xl { max-width: 80rem; }
+.max-w-4xl { max-width: 56rem; }
+.max-w-2xl { max-width: 42rem; }
+
+/* Flexbox */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+/* Grid */
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+
+/* Text Alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Font Weights */
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+
+/* Transitions */
+.transition-all { transition: all 0.2s ease-in-out; }
+.transition-colors { transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out; }
+.transition-transform { transition: transform 0.15s ease-in-out; }
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .sm\:px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+  .sm\:text-xl { font-size: var(--text-xl); }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .md\:text-2xl { font-size: var(--text-2xl); }
+  .md\:text-4xl { font-size: var(--text-4xl); }
+  .md\:text-6xl { font-size: var(--text-6xl); }
+  .md\:text-7xl { font-size: var(--text-7xl); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lg\:text-6xl { font-size: var(--text-6xl); }
+}
+
+/* ================================================================
+   ENGINEERING-SPECIFIC COMPONENTS
+   ================================================================ */
+
+/* Technical Specification Lists */
+.spec-list {
+  list-style: none;
+  padding: 0;
+}
+
+.spec-list li {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-neutral-200);
+  display: flex;
+  align-items: center;
+}
+
+.spec-list li:before {
+  content: "→";
+  color: var(--color-primary-600);
+  font-weight: bold;
+  margin-right: var(--space-3);
+}
+
+/* Process Steps */
+.process-step {
+  background: white;
+  border: 2px solid var(--color-neutral-200);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.process-step:hover {
+  border-color: var(--color-primary-200);
+  box-shadow: var(--shadow-lg);
+}
+
+.process-step-number {
+  position: absolute;
+  top: -12px;
+  left: var(--space-6);
+  background: var(--color-primary-600);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* Status Indicators */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-active {
+  background: var(--color-success);
+  color: white;
+}
+
+.status-pending {
+  background: var(--color-warning);
+  color: white;
+}
+
+.status-error {
+  background: var(--color-error);
+  color: white;
+}
+/* Add these classes to the end of your src/index.css file */
+
+/* ================================================================
+   HEADER & NAVIGATION FIXES
+   ================================================================ */
+
+/* Group hover states for dropdowns */
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1 !important;
+}
+
+.group:hover .group-hover\:visible {
+  visibility: visible !important;
+}
+
+.group:hover .group-hover\:translate-y-0 {
+  transform: translateY(0) !important;
+}
+
+.group:hover .group-hover\:rotate-180 {
+  transform: rotate(180deg) !important;
+}
+
+/* Base states for dropdown elements */
+.group-hover\:opacity-100 {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.group-hover\:visible {
+  visibility: hidden;
+  transition: visibility 0.2s ease-in-out;
+}
+
+.group-hover\:translate-y-0 {
+  transform: translateY(0.5rem);
+  transition: transform 0.2s ease-in-out;
+}
+
+.group-hover\:rotate-180 {
+  transition: transform 0.15s ease-in-out;
+}
+
+/* Additional utility classes */
+.invisible { visibility: hidden; }
+.visible { visibility: visible; }
+.opacity-0 { opacity: 0; }
+.opacity-100 { opacity: 1; }
+
+.translate-y-2 { transform: translateY(0.5rem); }
+.rotate-180 { transform: rotate(180deg); }
+
+.duration-200 { transition-duration: 0.2s; }
+.duration-300 { transition-duration: 0.3s; }
+
+/* Spacing utilities */
+.space-x-8 > * + * { margin-left: 2rem; }
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.space-y-1 > * + * { margin-top: 0.25rem; }
+
+/* Width utilities */
+.w-56 { width: 14rem; }
+
+/* Position utilities */
+.top-full { top: 100%; }
+.left-0 { left: 0; }
+
+/* Z-index */
+.z-50 { z-index: 50; }
+
+/* Display utilities */
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+
+/* Responsive utilities */
+@media (min-width: 1024px) {
+  .lg\:flex { display: flex; }
+  .lg\:hidden { display: none; }
+}
+
+/* Borders */
+.border { border-width: 1px; border-color: var(--color-neutral-200); }
+.border-t { border-top-width: 1px; border-top-color: var(--color-neutral-200); }
+
+/* Hover states */
+.hover\:bg-neutral-50:hover { background-color: var(--color-neutral-50); }
+.hover\:bg-neutral-100:hover { background-color: var(--color-neutral-100); }
+.hover\:text-primary:hover { color: var(--color-primary-600); }
+
+/* Padding utilities */
+.p-2 { padding: 0.5rem; }
+.p-4 { padding: 1rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.pl-4 { padding-left: 1rem; }
+
+/* Margin utilities */
+.mt-2 { margin-top: 0.5rem; }
+.ml-1 { margin-left: 0.25rem; }
+
+/* Positioning */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.sticky { position: sticky; }
+.top-0 { top: 0; }
+
+/* Overflow */
+.overflow-hidden { overflow: hidden; }
+
+/* Text utilities */
+.text-sm { font-size: var(--text-sm); }
+.font-medium { font-weight: 500; }
+
+/* Width utilities */
+.w-full { width: 100%; }
+
+/* Border radius */
+.rounded-lg { border-radius: var(--radius-lg); }
+/* Add this CSS to the end of your src/index.css file */
+
+/* ================================================================
+   DROPDOWN NAVIGATION FIX
+   ================================================================ */
+
+/* Dropdown container with proper hover area */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown trigger button */
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: color 0.15s ease-in-out;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+}
+
+/* Chevron icon in dropdown */
+.dropdown-chevron {
+  margin-left: 0.25rem;
+  transition: transform 0.15s ease-in-out;
+}
+
+/* Dropdown menu - initially hidden */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  width: 14rem;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-neutral-200);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition: all 0.2s ease-in-out;
+  z-index: 50;
+}
+
+/* Dropdown content padding */
+.dropdown-content {
+  padding: 0.5rem 0;
+}
+
+/* Individual dropdown items */
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-700);
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.dropdown-item:hover {
+  color: var(--color-primary-600);
+  background-color: var(--color-neutral-50);
+}
+
+/* Active dropdown item */
+.dropdown-item-active {
+  color: var(--color-primary-600) !important;
+  background-color: var(--color-primary-50) !important;
+}
+
+/* Show dropdown on container hover */
+.dropdown-container:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Rotate chevron on hover */
+.dropdown-container:hover .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+/* Ensure dropdown stays visible when hovering over menu */
+.dropdown-container:hover .dropdown-trigger {
+  color: var(--color-primary-600);
+}
+
+/* Create invisible bridge between trigger and dropdown */
+.dropdown-container::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+  background: transparent;
+  z-index: 49;
+}
+
+/* ================================================================
+   RESPONSIVE SPACING UTILITIES
+   ================================================================ */
+
+/* Space between nav items */
+.space-x-8 > * + * {
+  margin-left: 2rem;
+}
+
+/* Additional utility classes needed */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.w-full { width: 100%; }
+.block { display: block; }
+.hidden { display: none; }
+.text-sm { font-size: var(--text-sm); }
+.font-medium { font-weight: 500; }
+.transition-colors { transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out; }
+.transition-transform { transition: transform 0.15s ease-in-out; }
+.cursor-pointer { cursor: pointer; }
+.overflow-hidden { overflow: hidden; }
+
+/* Responsive classes */
+@media (min-width: 1024px) {
+  .lg\:flex { display: flex; }
+  .lg\:hidden { display: none; }
+}
+
+/* Mobile spacing */
+.space-y-1 > * + * { margin-top: 0.25rem; }
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.pl-4 { padding-left: 1rem; }
+
+/* Border and margin utilities */
+.border-t { border-top: 1px solid var(--color-neutral-200); }
+.mt-2 { margin-top: 0.5rem; }
+.ml-1 { margin-left: 0.25rem; }
+
+/* Z-index */
+.z-50 { z-index: 50; }
+
+/* Transform utilities */
+.rotate-180 { transform: rotate(180deg); }
+
+/* Additional hover states */
+.hover\:bg-neutral-50:hover { background-color: var(--color-neutral-50); }
+.hover\:bg-neutral-100:hover { background-color: var(--color-neutral-100); }
+.hover\:text-primary:hover { color: var(--color-primary-600); }
+
+/* Ensure text colors work with design system */
+.text-primary { color: var(--color-primary-600); }
+.text-neutral-700 { color: var(--color-neutral-700); }
+.text-neutral-600 { color: var(--color-neutral-600); }
+
+/* Button reset for dropdown triggers */
+button.dropdown-trigger {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+/* Add to src/index.css */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* ================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ================================================================ */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Show screen reader content when focused */
+.sr-only:focus,
+.focus\:not-sr-only:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: inherit !important;
+  margin: inherit !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  z-index: 50;
+}
+
+/* Skip link - appears when focused */
+.focus\:not-sr-only:focus {
+  position: absolute !important;
+  top: 1rem !important;
+  left: 1rem !important;
+  background: var(--color-primary-600) !important;
+  color: white !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: var(--radius-lg) !important;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-xl);
+}
+
+/* Enhanced focus styles for better visibility */
+*:focus {
+  outline: 2px solid var(--color-primary-600) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+
+/* Remove outline for mouse users, keep for keyboard users */
+*:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary-600) !important;
+  outline-offset: 2px !important;
+}
+
+/* Button focus states */
+.btn:focus,
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary-200) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Input focus states */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-primary-600) !important;
+  outline-offset: 2px !important;
+  border-color: var(--color-primary-600) !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Link focus states */
+a:focus,
+a:focus-visible {
+  outline: 2px solid var(--color-primary-600) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+  text-decoration: underline;
+}
+
+/* Dropdown keyboard navigation */
+.dropdown-container:focus-within .dropdown-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid var(--color-neutral-900) !important;
+  }
+  
+  .btn {
+    border: 2px solid currentColor !important;
+  }
+  
+  .feature-card {
+    border: 2px solid var(--color-neutral-400) !important;
+  }
+  
+  /* Ensure text has sufficient contrast */
+  .text-neutral-600 {
+    color: var(--color-neutral-800) !important;
+  }
+  
+  .text-neutral-500 {
+    color: var(--color-neutral-700) !important;
+  }
+}
+
+/* Reduced motion support - respects user preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Still allow opacity transitions for accessibility */
+  .dropdown-menu {
+    transition: opacity 0.01ms !important;
+  }
+}
+
+/* Ensure minimum touch target sizes (44x44px minimum) */
+button,
+.btn,
+a,
+input[type="button"],
+input[type="submit"],
+input[type="checkbox"],
+input[type="radio"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Exception for text links */
+a:not(.btn) {
+  min-height: auto;
+  min-width: auto;
+}
+
+/* Color contrast improvements */
+.text-neutral-600 {
+  color: #4b5563 !important; /* WCAG AA compliant */
+}
+
+.text-neutral-700 {
+  color: #374151 !important; /* WCAG AA compliant */
+}
+
+.text-neutral-500 {
+  color: #6b7280 !important; /* WCAG AA compliant */
+}
+
+/* Ensure placeholder text has sufficient contrast */
+::placeholder {
+  color: #6b7280 !important;
+  opacity: 1;
+}
+
+/* ================================================================
+   IMAGE & VISUAL ENHANCEMENTS
+   ================================================================ */
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Aspect ratio utilities */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-photo {
+  aspect-ratio: 4 / 3;
+}
+
+/* Image loading states */
+.image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Placeholder image improvements */
+.placeholder-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-card);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Professional gradients for placeholders */
+.gradient-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.gradient-red {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.gradient-gray {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+}
+
+/* ================================================================
+   ANIMATION ENHANCEMENTS
+   ================================================================ */
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect reduced motion for scroll behavior */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Loading spinner animation */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade in animation */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================================================
+   FORM ACCESSIBILITY IMPROVEMENTS
+   ================================================================ */
+
+/* Error state styling */
+.field-error input,
+.field-error textarea,
+.field-error select {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Required field indicator */
+.field-required label::after {
+  content: " *";
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* Form validation messages */
+.field-message {
+  font-size: var(--text-sm);
+  margin-top: var(--space-1);
+  display: flex;
+  align-items: center;
+}
+
+.field-message.error {
+  color: #ef4444;
+}
+
+.field-message.success {
+  color: #10b981;
+}
+
+/* ================================================================
+   RESPONSIVE IMPROVEMENTS
+   ================================================================ */
+
+/* Container queries for better responsive design */
+@container (min-width: 768px) {
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+/* Print styles */
+@media print {
+  /* Hide non-essential elements when printing */
+  .no-print,
+  header nav,
+  .btn,
+  .dropdown-menu {
+    display: none !important;
+  }
+  
+  /* Ensure good contrast for printing */
+  * {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Page breaks */
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+/* ================================================================
+   UTILITY CLASSES FOR ACCESSIBILITY
+   ================================================================ */
+
+/* Visually hidden but available to screen readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* High contrast text for important elements */
+.high-contrast {
+  color: var(--color-neutral-900) !important;
+  font-weight: 600;
+}
+
+/* Focus trap container */
+.focus-trap {
+  position: relative;
+}
+
+/* Announcement region for screen readers */
+.announcement {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+[aria-live] {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ================================================================
+   BROWSER COMPATIBILITY
+   ================================================================ */
+
+/* Safari and iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific styles */
+  .btn {
+    -webkit-appearance: none;
+    border-radius: var(--radius-lg);
+  }
+  
+  input,
+  textarea {
+    -webkit-appearance: none;
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* Focus-visible polyfill support */
+.js-focus-visible *:focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Ensure consistent box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ================================================================
+   DARK MODE PREPARATION (Optional)
+   ================================================================ */
+
+/* CSS custom properties for potential dark mode */
+:root {
+  --color-background: #ffffff;
+  --color-foreground: #1f2937;
+  --color-muted: #6b7280;
+}
+
+/* Dark mode styles (activate with .dark class on html) */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-auto {
+    --color-background: #1f2937;
+    --color-foreground: #f9fafb;
+    --color-muted: #d1d5db;
+    
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+/* Gradient utilities */
+.from-blue-400 { --tw-gradient-from: #60a5fa; }
+.to-blue-600 { --tw-gradient-to: #2563eb; }
+.from-red-400 { --tw-gradient-from: #f87171; }
+.to-red-600 { --tw-gradient-to: #dc2626; }
+.from-green-400 { --tw-gradient-from: #4ade80; }
+.to-green-600 { --tw-gradient-to: #16a34a; }
+.from-purple-400 { --tw-gradient-from: #c084fc; }
+.to-purple-600 { --tw-gradient-to: #9333ea; }
+.from-gray-400 { --tw-gradient-from: #9ca3af; }
+.to-gray-600 { --tw-gradient-to: #4b5563; }
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+/* Gradient utilities for PlaceholderImage */
+.from-blue-400 { --tw-gradient-from: #60a5fa; --tw-gradient-to: rgb(96 165 250 / 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+.to-blue-600 { --tw-gradient-to: #2563eb; }
+.from-red-400 { --tw-gradient-from: #f87171; --tw-gradient-to: rgb(248 113 113 / 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+.to-red-600 { --tw-gradient-to: #dc2626; }
+.from-green-400 { --tw-gradient-from: #4ade80; --tw-gradient-to: rgb(74 222 128 / 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+.to-green-600 { --tw-gradient-to: #16a34a; }
+.from-purple-400 { --tw-gradient-from: #c084fc; --tw-gradient-to: rgb(192 132 252 / 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+.to-purple-600 { --tw-gradient-to: #9333ea; }
+.from-gray-400 { --tw-gradient-from: #9ca3af; --tw-gradient-to: rgb(156 163 175 / 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+.to-gray-600 { --tw-gradient-to: #4b5563; }
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+.bg-gradient-to-tr {
+  background-image: linear-gradient(to top right, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+.bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--tw-gradient-from), var(--tw-gradient-to));
+}
