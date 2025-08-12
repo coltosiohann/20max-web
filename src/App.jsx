@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Competencies from './pages/Competencies'
@@ -14,6 +15,7 @@ import ComponentShowcase from './pages/ComponentShowcase'
 function App() {
   return (
     <Router basename="/20max-web">
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
