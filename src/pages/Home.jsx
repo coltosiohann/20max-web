@@ -1,8 +1,11 @@
 // src/pages/Home.jsx - Enhanced with 20MAX Design System
 import { ArrowRight, Shield, Zap, Target, CheckCircle, Users, Award } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -81,11 +84,17 @@ const Home = () => {
               variants={fadeInUp}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <button className="btn btn-primary btn-lg">
+              <button 
+                className="btn btn-primary btn-lg"
+                onClick={() => navigate('/competencies')}
+              >
                 Explore Our Capabilities
                 <ArrowRight className="ml-2" size={20} />
               </button>
-              <button className="btn btn-outline btn-lg">
+              <button 
+                className="btn btn-outline btn-lg"
+                onClick={() => navigate('/contact')}
+              >
                 Contact Us Today
               </button>
             </motion.div>
@@ -308,11 +317,17 @@ const Home = () => {
               precision engineering and innovative solutions.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn btn-primary btn-lg">
+              <button 
+                className="btn btn-primary btn-lg"
+                onClick={() => navigate('/contact')}
+              >
                 Start Your Project Today
                 <ArrowRight className="ml-2" size={20} />
               </button>
-              <button className="btn btn-outline btn-lg">
+              <button 
+                className="btn btn-outline btn-lg"
+                onClick={() => navigate('/experience')}
+              >
                 View Our Portfolio
               </button>
             </motion.div>
