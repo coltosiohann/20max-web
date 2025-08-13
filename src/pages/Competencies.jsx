@@ -5,8 +5,11 @@ import TechSpecs from '../components/ui/TechSpecs'
 import ProcessDiagram from '../components/ui/ProcessDiagram'
 import { motion } from 'framer-motion'
 import { Settings, Zap, Wrench, Database, Code, Award, Target, Shield } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const Competencies = () => {
+  const navigate = useNavigate()
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -380,10 +383,16 @@ const Competencies = () => {
               next engineering project with precision and efficiency.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn btn-primary btn-lg">
+              <button 
+                className="btn btn-primary btn-lg"
+                onClick={() => navigate('/contact')}
+              >
                 Discuss Your Project
               </button>
-              <button className="btn btn-outline btn-lg">
+              <button 
+                className="btn btn-outline btn-lg"
+                onClick={() => navigate('/contact')}
+              >
                 Technical Consultation
               </button>
             </div>

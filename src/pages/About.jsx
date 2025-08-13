@@ -3,8 +3,11 @@ import Hero from '../components/ui/Hero'
 import FeatureCard from '../components/ui/FeatureCard'
 import { motion } from 'framer-motion'
 import { Users, Award, Shield, Target, Zap, Globe } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const About = () => {
+  const navigate = useNavigate()
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -265,10 +268,16 @@ const About = () => {
               security, and innovative solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn btn-primary btn-lg">
+              <button 
+                className="btn btn-primary btn-lg"
+                onClick={() => navigate('/competencies')}
+              >
                 View Our Capabilities
               </button>
-              <button className="btn btn-outline btn-lg">
+              <button 
+                className="btn btn-outline btn-lg"
+                onClick={() => navigate('/contact')}
+              >
                 Contact Our Team
               </button>
             </div>

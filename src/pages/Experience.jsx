@@ -3,8 +3,11 @@ import Hero from '../components/ui/Hero'
 import TeamCard from '../components/ui/TeamCard'
 import { motion } from 'framer-motion'
 import { Users, Award, Target, Zap } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const Experience = () => {
+  const navigate = useNavigate()
+
   const teamMembers = [
     {
       name: "Alexandru Popescu",
@@ -135,7 +138,10 @@ const Experience = () => {
               based in Craiova, scalable, secure, and high-performance. Ready to start immediately.
             </p>
             <p className="text-xl mb-8">Let's design the future of safety together.</p>
-            <button className="btn btn-primary btn-lg">
+            <button 
+              className="btn btn-primary btn-lg"
+              onClick={() => navigate('/contact')}
+            >
               Start Your Project Today
             </button>
           </motion.div>

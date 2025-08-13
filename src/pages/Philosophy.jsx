@@ -2,8 +2,11 @@
 import Hero from '../components/ui/Hero'
 import { motion } from 'framer-motion'
 import { Target, Shield, Zap, Award, Users, Globe, CheckCircle, ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const Philosophy = () => {
+  const navigate = useNavigate()
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -164,7 +167,10 @@ const Philosophy = () => {
               </div>
               
               <div className="mt-8">
-                <button className="btn btn-primary">
+                <button 
+                  className="btn btn-primary"
+                  onClick={() => navigate('/competencies')}
+                >
                   See Our Process
                   <ArrowRight className="ml-2" size={20} />
                 </button>
@@ -400,11 +406,17 @@ const Philosophy = () => {
               for your most critical projects.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn btn-primary btn-lg">
+              <button 
+                className="btn btn-primary btn-lg"
+                onClick={() => navigate('/contact')}
+              >
                 Start Your Project
                 <ArrowRight className="ml-2" size={20} />
               </button>
-              <button className="btn btn-outline btn-lg">
+              <button 
+                className="btn btn-outline btn-lg"
+                onClick={() => navigate('/contact')}
+              >
                 Schedule Consultation
               </button>
             </div>

@@ -3,8 +3,11 @@ import Hero from '../components/ui/Hero'
 import ContactForm from '../components/ui/ContactForm'
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Shield, Users, Zap } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const Contact = () => {
+  const navigate = useNavigate()
+
   const contactInfo = [
     {
       icon: MapPin,
@@ -52,6 +55,14 @@ const Contact = () => {
 
   // Replace 'your-formspree-id' with your actual Formspree form ID
   const FORMSPREE_ID = 'mblkqqro'
+
+  // Function to scroll to contact form
+  const scrollToContactForm = () => {
+    const formSection = document.getElementById('contact-form-section')
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <div>
@@ -104,7 +115,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 bg-neutral-50">
+      <section id="contact-form-section" className="py-20 bg-neutral-50">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <motion.div
@@ -200,10 +211,16 @@ const Contact = () => {
               your project requirements and provide immediate technical consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn btn-primary btn-lg">
+              <button 
+                className="btn btn-primary btn-lg"
+                onClick={scrollToContactForm}
+              >
                 Schedule Consultation
               </button>
-              <button className="btn btn-outline btn-lg">
+              <button 
+                className="btn btn-outline btn-lg"
+                onClick={() => navigate('/competencies')}
+              >
                 View Our Capabilities
               </button>
             </div>
