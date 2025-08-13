@@ -4,7 +4,7 @@ import Accordion from '../components/ui/Accordion'
 import TechSpecs from '../components/ui/TechSpecs'
 import ProcessDiagram from '../components/ui/ProcessDiagram'
 import { motion } from 'framer-motion'
-import { Settings, Zap, Wrench, Database, Code, Award, Target, Shield } from 'lucide-react'
+
 import { ArrowRight, Shield, Zap, Target, CheckCircle, Users, Award } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
