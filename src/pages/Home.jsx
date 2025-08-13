@@ -47,7 +47,8 @@ const Home = () => {
   ]
 
   const stats = [
-    { number: '20+', label: 'Expert Engineers', icon: Users },
+    { number: '20+', label: 'Expert Engineers', icon: Target },
+
     { number: '100+', label: 'Projects Delivered', icon: Award },
     { number: '99.8%', label: 'Quality Rating', icon: CheckCircle },
   ]
