@@ -1,4 +1,4 @@
-// src/pages/Competencies.jsx - Core Competencies with technical details
+// src/pages/Home.jsx - Home PAge
 import Hero from '../components/ui/Hero'
 import Accordion from '../components/ui/Accordion'
 import TechSpecs from '../components/ui/TechSpecs'
@@ -80,7 +80,7 @@ const Home = () => {
             
             <motion.p 
               variants={fadeInUp}
-              className="text-lg mb-12 text-neutral-200 max-w-2xl mx-auto"
+              className="text-lg mb-12 text-white max-w-2xl mx-auto"
             >
               Advanced CAD/CAE/CAM solutions for automotive and defense industries. 
               Precision engineering powered by innovation and security.
