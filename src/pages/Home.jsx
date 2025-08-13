@@ -1,6 +1,10 @@
-// src/pages/Home.jsx - Enhanced with 20MAX Design System
-import { ArrowRight, Shield, Zap, Target, CheckCircle, Users, Award } from 'lucide-react'
+// src/pages/Competencies.jsx - Core Competencies with technical details
+import Hero from '../components/ui/Hero'
+import Accordion from '../components/ui/Accordion'
+import TechSpecs from '../components/ui/TechSpecs'
+import ProcessDiagram from '../components/ui/ProcessDiagram'
 import { motion } from 'framer-motion'
+import { Settings, Zap, Wrench, Database, Code, Award, Target, Shield } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
@@ -67,14 +71,14 @@ const Home = () => {
             
             <motion.p 
               variants={fadeInUp}
-              className="text-lead text-neutral-300 mb-8 max-w-4xl mx-auto"
+              className="text-lead text-white mb-8 max-w-4xl mx-auto"
             >
               Engineering Excellence for the Future
             </motion.p>
             
             <motion.p 
               variants={fadeInUp}
-              className="text-lg mb-12 text-neutral-400 max-w-2xl mx-auto"
+              className="text-lg mb-12 text-neutral-200 max-w-2xl mx-auto"
             >
               Advanced CAD/CAE/CAM solutions for automotive and defense industries. 
               Precision engineering powered by innovation and security.
