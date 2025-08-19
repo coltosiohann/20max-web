@@ -1,11 +1,10 @@
-// src/pages/Home.jsx - Home PAge
+// src/pages/Competencies.jsx - Core Competencies with technical details
 import Hero from '../components/ui/Hero'
 import Accordion from '../components/ui/Accordion'
 import TechSpecs from '../components/ui/TechSpecs'
 import ProcessDiagram from '../components/ui/ProcessDiagram'
 import { motion } from 'framer-motion'
-
-import { ArrowRight, Shield, Zap, Target, CheckCircle, Users, Award } from 'lucide-react'
+import { Settings, Zap, Wrench, Database, Code, Award, Target, Shield } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
@@ -47,8 +46,7 @@ const Home = () => {
   ]
 
   const stats = [
-    { number: '20+', label: 'Expert Engineers', icon: Target },
-
+    { number: '20+', label: 'Expert Engineers', icon: Users },
     { number: '100+', label: 'Projects Delivered', icon: Award },
     { number: '99.8%', label: 'Quality Rating', icon: CheckCircle },
   ]
@@ -315,10 +313,10 @@ const Home = () => {
             viewport={{ once: true }}
             variants={staggerContainer}
           >
-            <motion.h2 variants={fadeInUp} className="text-display mb-6">
+            <motion.h2 variants={fadeInUp} className="text-display mb-6 text-white">
               Ready to Engineer the Future?
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-lead text-neutral-300 mb-8 max-w-2xl mx-auto">
+            <motion.p variants={fadeInUp} className="text-lead text-white mb-8 max-w-2xl mx-auto">
               Let's discuss how 20MAX can accelerate your next project with 
               precision engineering and innovative solutions.
             </motion.p>
