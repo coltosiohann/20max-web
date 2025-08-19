@@ -213,13 +213,42 @@ const Competencies = () => {
   return (
     <div>
       {/* Hero Section */}
-      <Hero
-        title="Core Engineering Competencies"
-        subtitle="Complete CAD/CAE/CAM Solutions"
-        description="Advanced technical capabilities spanning the complete product development lifecycle. From initial concept through manufacturing support, we deliver precision engineering solutions that meet the most demanding industry standards."
-        backgroundType="gradient"
-        size="medium"
-      />
+      <section className="bg-gradient-hero text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="container py-20 relative z-10">
+          <motion.div 
+            className="text-center"
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+          >
+            <motion.div variants={fadeInUp}>
+              <h1 className="text-hero mb-6 text-white">
+                Core Engineering Competencies
+              </h1>
+            </motion.div>
+            
+            <motion.p 
+              variants={fadeInUp}
+              className="text-lead text-white mb-8 max-w-4xl mx-auto"
+            >
+              Complete CAD/CAE/CAM Solutions
+            </motion.p>
+            
+            <motion.p 
+              variants={fadeInUp}
+              className="text-lg mb-12 text-white max-w-2xl mx-auto"
+            >
+              Advanced technical capabilities spanning the complete product development lifecycle. 
+              From initial concept through manufacturing support, we deliver precision engineering 
+              solutions that meet the most demanding industry standards.
+            </motion.p>
+          </motion.div>
+        </div>
+        
+        {/* Hero Pattern Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+      </section>
 
       {/* Process Overview */}
       <section className="py-20 bg-white">
