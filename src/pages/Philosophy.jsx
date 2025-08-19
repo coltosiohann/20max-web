@@ -278,8 +278,8 @@ const Philosophy = () => {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="text-display mb-6">Philosophy in Practice</h2>
-            <p className="text-lead text-neutral-300 mb-12 max-w-3xl mx-auto">
+            <h2 className="text-display mb-6 text-white">Philosophy in Practice</h2>
+            <p className="text-lead text-white mb-12 max-w-3xl mx-auto">
               How our engineering philosophy translates into tangible benefits for your projects
             </p>
           </motion.div>
@@ -319,9 +319,9 @@ const Philosophy = () => {
             ].map((metric, index) => (
               <motion.div key={index} variants={fadeInUp} className="text-center">
                 <div className="text-4xl font-bold text-primary-light mb-2">{metric.stat}</div>
-                <div className="text-lg font-semibold mb-2">{metric.title}</div>
-                <div className="text-sm text-neutral-300 mb-2">{metric.label}</div>
-                <p className="text-sm text-neutral-400">{metric.description}</p>
+                <div className="text-lg font-semibold mb-2 text-white">{metric.title}</div>
+                <div className="text-sm text-white mb-2">{metric.label}</div>
+                <p className="text-sm text-white">{metric.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -341,20 +341,20 @@ const Philosophy = () => {
               {/* Partnership visual */}
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h3 className="text-2xl font-semibold text-neutral-900 mb-6 text-center">Partnership Approach</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
+                <div className="space-y-4 text-center">
+                  <div className="flex items-center justify-center">
                     <div className="w-3 h-3 bg-primary rounded-full mr-4"></div>
                     <span className="text-neutral-700">Integrated team collaboration</span>
                   </div>
-                  <div className="flex items-center">
+                  <div className="flex items-center justify-center">
                     <div className="w-3 h-3 bg-primary rounded-full mr-4"></div>
                     <span className="text-neutral-700">Transparent communication</span>
                   </div>
-                  <div className="flex items-center">
+                  <div className="flex items-center justify-center">
                     <div className="w-3 h-3 bg-primary rounded-full mr-4"></div>
                     <span className="text-neutral-700">Shared success metrics</span>
                   </div>
-                  <div className="flex items-center">
+                  <div className="flex items-center justify-center">
                     <div className="w-3 h-3 bg-primary rounded-full mr-4"></div>
                     <span className="text-neutral-700">Long-term relationship focus</span>
                   </div>
