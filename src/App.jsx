@@ -14,7 +14,7 @@ import ComponentShowcase from './pages/ComponentShowcase'
 
 function App() {
   return (
-    <Router basename="/20max-web">
+    <Router>
       <ScrollToTop />
       <Layout>
         <Routes>
