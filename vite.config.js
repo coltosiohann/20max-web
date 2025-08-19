@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/20max-web/',  // Changed from /20max-website/
+  base: '/',  // Changed from /20max-website/
   css: {
     postcss: './postcss.config.js',
   },
