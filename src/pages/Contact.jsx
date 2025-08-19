@@ -205,8 +205,8 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-display mb-6">Ready to Begin?</h2>
-            <p className="text-lead text-neutral-300 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-display mb-6 text-white">Ready to Begin?</h2>
+            <p className="text-lead text-white mb-8 max-w-2xl mx-auto">
               Take the first step towards engineering excellence. Our team is ready to discuss 
               your project requirements and provide immediate technical consultation.
             </p>
