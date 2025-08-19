@@ -212,43 +212,15 @@ const Competencies = () => {
 
   return (
     <div>
-      {/* Hero Section - Custom with white text */}
-      <section className="bg-gradient-hero text-white relative overflow-hidden min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="container py-20 relative z-10 w-full">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
-          >
-            <motion.div variants={fadeInUp}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-                Core Engineering Competencies
-              </h1>
-            </motion.div>
-            
-            <motion.p 
-              variants={fadeInUp}
-              className="text-xl md:text-2xl font-semibold text-white mb-8 max-w-3xl mx-auto"
-            >
-              Complete CAD/CAE/CAM Solutions
-            </motion.p>
-            
-            <motion.p 
-              variants={fadeInUp}
-              className="text-lg text-white max-w-2xl mx-auto leading-relaxed"
-            >
-              Advanced technical capabilities spanning the complete product development lifecycle. 
-              From initial concept through manufacturing support, we deliver precision engineering 
-              solutions that meet the most demanding industry standards.
-            </motion.p>
-          </motion.div>
-        </div>
-        
-        {/* Hero Pattern Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
-      </section>
+      {/* Hero Section */}
+      <Hero
+        title="Core Engineering Competencies"
+        subtitle="Complete CAD/CAE/CAM Solutions"
+        description="Advanced technical capabilities spanning the complete product development lifecycle. From initial concept through manufacturing support, we deliver precision engineering solutions that meet the most demanding industry standards."
+        backgroundType="gradient"
+        size="medium"
+        textColor="white"
+      />
 
       {/* Process Overview */}
       <section className="py-20 bg-white">

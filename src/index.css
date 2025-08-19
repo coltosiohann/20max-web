@@ -1368,3 +1368,9 @@ html {
   background-image: linear-gradient(to top, var(--tw-gradient-from), var(--tw-gradient-to));
 }
 
+/* Add this to your CSS file */
+.hero-section .hero-title,
+.hero-section .hero-subtitle,
+.hero-section .hero-description {
+  color: white !important;
+}
