@@ -378,8 +378,8 @@ const Competencies = () => {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="text-display mb-6">Ready to Leverage Our Expertise?</h2>
-            <p className="text-lead text-neutral-300 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-display mb-6 text-white">Ready to Leverage Our Expertise?</h2>
+            <p className="text-lead text-white mb-8 max-w-2xl mx-auto">
               Discover how our comprehensive CAD/CAE/CAM capabilities can accelerate your 
               next engineering project with precision and efficiency.
             </p>
