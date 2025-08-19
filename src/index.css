@@ -1374,3 +1374,16 @@ html {
 .hero-section .hero-description {
   color: white !important;
 }
+
+
+/* Add this to your CSS file */
+.bg-gradient-hero h3 {
+  border: none !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.bg-gradient-hero h3::before,
+.bg-gradient-hero h3::after {
+  display: none !important;
+}

@@ -230,8 +230,8 @@ const About = () => {
               <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto lg:mx-0">
                 <Target size={32} className="text-white" />
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
-              <p className="text-neutral-300 text-lg leading-relaxed">
+              <h3 className="text-2xl font-semibold mb-4 text-white">Our Mission</h3>
+              <p className="text-white text-lg leading-relaxed">
                 To deliver precision engineering solutions that exceed industry standards while maintaining 
                 the highest levels of security and technical excellence. We are committed to being the 
                 trusted engineering partner for automotive and defense sectors globally.
@@ -242,8 +242,8 @@ const About = () => {
               <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto lg:mx-0">
                 <Globe size={32} className="text-white" />
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Our Vision</h3>
-              <p className="text-neutral-300 text-lg leading-relaxed">
+              <h3 className="text-2xl font-semibold mb-4 text-white">Our Vision</h3>
+              <p className="text-white text-lg leading-relaxed">
                 To be recognized as the leading engineering solutions provider in Romania and beyond, 
                 setting new standards for innovation, quality, and security in mechanical design and 
                 manufacturing engineering across all sectors we serve.
