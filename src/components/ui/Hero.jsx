@@ -36,6 +36,11 @@ const Hero = ({
     large: 'py-20'
   }
 
+  // Force white text for gradient backgrounds
+  const titleColorClass = backgroundType === 'gradient' ? 'text-white' : textClasses[backgroundType]
+  const subtitleColorClass = backgroundType === 'gradient' ? 'text-white' : textClasses[backgroundType]
+  const descriptionColorClass = backgroundType === 'gradient' ? 'text-white' : textClasses[backgroundType]
+
   return (
     <section className={`${backgroundClasses[backgroundType]} ${textClasses[backgroundType]} relative overflow-hidden`}>
       {backgroundType === 'gradient' && (
@@ -50,7 +55,8 @@ const Hero = ({
         >
           <motion.h1 
             variants={fadeInUp}
-            className={size === 'large' ? 'text-hero mb-6' : 'text-display mb-4'}
+            className={`${size === 'large' ? 'text-hero' : 'text-display'} mb-4 ${titleColorClass} font-bold`}
+            style={{ color: backgroundType === 'gradient' ? 'white' : undefined }}
           >
             {title}
           </motion.h1>
@@ -58,7 +64,8 @@ const Hero = ({
           {subtitle && (
             <motion.p 
               variants={fadeInUp}
-              className="text-lead mb-8"
+              className={`text-lead mb-8 ${subtitleColorClass} font-semibold`}
+              style={{ color: backgroundType === 'gradient' ? 'white' : undefined }}
             >
               {subtitle}
             </motion.p>
@@ -67,7 +74,8 @@ const Hero = ({
           {description && (
             <motion.p 
               variants={fadeInUp}
-              className="text-lg mb-12 opacity-90 max-w-2xl mx-auto"
+              className={`text-lg mb-12 opacity-90 max-w-2xl mx-auto ${descriptionColorClass}`}
+              style={{ color: backgroundType === 'gradient' ? 'white' : undefined }}
             >
               {description}
             </motion.p>
