@@ -29,12 +29,14 @@ const Location = () => {
 
   return (
     <div>
+      {/* Hero Section with Grid Particles */}
       <Hero
         title="Local Strength, Global Standards"
         subtitle="Strategic Location Advantage"
         description="Positioned in Craiova for direct access to automotive manufacturing while maintaining world-class engineering standards and secure infrastructure for sensitive projects."
         backgroundType="gradient"
         size="medium"
+        enableParticles={true}
       />
 
       <section className="py-20 bg-white">

@@ -1,5 +1,6 @@
 // src/pages/Philosophy.jsx - Engineering Philosophy and approach
 import Hero from '../components/ui/Hero'
+import GridParticleBackground from '../components/ui/GridParticleBackground'
 import { motion } from 'framer-motion'
 import { Target, Shield, Zap, Award, Users, Globe, CheckCircle, ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -77,13 +78,14 @@ const Philosophy = () => {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* Hero Section with Grid Particles */}
       <Hero
         title="Engineering with Purpose"
         subtitle="Our Philosophy & Approach"
         description="Automotive and defense safety starts on the drawing board. At 20MAX, we bring more than technical expertise – we bring a safety-first engineering culture, powered by precision, reliability, and local agility that delivers beyond expectations, locally and globally."
         backgroundType="gradient"
         size="large"
+        enableParticles={true}
       />
 
       {/* Core Philosophy */}
@@ -268,9 +270,15 @@ const Philosophy = () => {
         </div>
       </section>
 
-      {/* Philosophy in Practice */}
-      <section className="py-20 bg-gradient-hero text-white">
-        <div className="container">
+      {/* Philosophy in Practice with Grid Particles and Metrics */}
+      <section className="bg-gradient-hero text-white relative overflow-hidden py-20">
+        {/* Grid Particles Background */}
+        <GridParticleBackground />
+        
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black opacity-20" style={{ zIndex: 2 }}></div>
+        
+        <div className="container relative" style={{ zIndex: 10 }}>
           <motion.div 
             className="text-center mb-16"
             initial="initial"
@@ -320,8 +328,8 @@ const Philosophy = () => {
               <motion.div key={index} variants={fadeInUp} className="text-center">
                 <div className="text-4xl font-bold text-primary-light mb-2">{metric.stat}</div>
                 <div className="text-lg font-semibold mb-2 text-white">{metric.title}</div>
-                <div className="text-sm text-white mb-2">{metric.label}</div>
-                <p className="text-sm text-white">{metric.description}</p>
+                <div className="text-sm text-white mb-2 opacity-90">{metric.label}</div>
+                <p className="text-sm text-white opacity-80">{metric.description}</p>
               </motion.div>
             ))}
           </motion.div>

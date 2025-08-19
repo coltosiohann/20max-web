@@ -1,6 +1,7 @@
 // src/pages/About.jsx - Comprehensive About Us page
 import Hero from '../components/ui/Hero'
 import FeatureCard from '../components/ui/FeatureCard'
+import GridParticleBackground from '../components/ui/GridParticleBackground'
 import { motion } from 'framer-motion'
 import { Users, Award, Shield, Target, Zap, Globe } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -66,13 +67,14 @@ const About = () => {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* Hero Section with Grid Particles */}
       <Hero
         title="Engineering Excellence Through Innovation"
         subtitle="About 20MAX"
         description="We are a Romanian engineering company with highly experienced teams specializing in advanced mechanical design for automotive and defense sectors. Our engineers bring decades of combined expertise in delivering precision solutions that exceed industry standards."
         backgroundType="gradient"
         size="large"
+        enableParticles={true}
       />
 
       {/* Company Story Section */}
@@ -216,9 +218,12 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 bg-gradient-hero text-white">
-        <div className="container">
+      {/* Mission & Vision with Grid Background */}
+      <section className="py-20 bg-gradient-hero text-white relative overflow-hidden">
+        <GridParticleBackground />
+        <div className="absolute inset-0 bg-black opacity-20" style={{ zIndex: 2 }}></div>
+        
+        <div className="container relative" style={{ zIndex: 10 }}>
           <motion.div 
             className="grid grid-cols-1 lg:grid-cols-2 gap-12"
             initial="initial"
@@ -227,11 +232,11 @@ const About = () => {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="text-center lg:text-left">
-              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto lg:mx-0">
+              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto lg:mx-0 backdrop-blur-sm border border-white border-opacity-20">
                 <Target size={32} className="text-white" />
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-white">Our Mission</h3>
-              <p className="text-white text-lg leading-relaxed">
+              <p className="text-white text-lg leading-relaxed opacity-90">
                 To deliver precision engineering solutions that exceed industry standards while maintaining 
                 the highest levels of security and technical excellence. We are committed to being the 
                 trusted engineering partner for automotive and defense sectors globally.
@@ -239,11 +244,11 @@ const About = () => {
             </motion.div>
             
             <motion.div variants={fadeInUp} className="text-center lg:text-left">
-              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto lg:mx-0">
+              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto lg:mx-0 backdrop-blur-sm border border-white border-opacity-20">
                 <Globe size={32} className="text-white" />
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-white">Our Vision</h3>
-              <p className="text-white text-lg leading-relaxed">
+              <p className="text-white text-lg leading-relaxed opacity-90">
                 To be recognized as the leading engineering solutions provider in Romania and beyond, 
                 setting new standards for innovation, quality, and security in mechanical design and 
                 manufacturing engineering across all sectors we serve.

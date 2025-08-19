@@ -28,12 +28,14 @@ const Business = () => {
 
   return (
     <div>
+      {/* Hero Section with Grid Particles */}
       <Hero
         title="Build Your Team With BOT"
         subtitle="Flexible Business Models"
         description="Our Build-Operate-Transfer model helps create a long-term engineering base with minimal risk, maximum continuity, and local engineering power aligned to your vision."
         backgroundType="gradient"
         size="medium"
+        enableParticles={true}
       />
 
       <section className="py-20 bg-white">

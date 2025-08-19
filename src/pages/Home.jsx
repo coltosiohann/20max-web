@@ -1,8 +1,5 @@
-// src/pages/Competencies.jsx - Core Competencies with technical details
+// src/pages/Home.jsx
 import Hero from '../components/ui/Hero'
-import Accordion from '../components/ui/Accordion'
-import TechSpecs from '../components/ui/TechSpecs'
-import ProcessDiagram from '../components/ui/ProcessDiagram'
 import { motion } from 'framer-motion'
 import { ArrowRight, Shield, Zap, Target, CheckCircle, Users, Award } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -53,61 +50,23 @@ const Home = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-hero text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="container py-20 relative z-10">
-          <motion.div 
-            className="text-center"
-            initial="initial"
-            animate="animate"
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeInUp}>
-              <h1 className="text-hero mb-6">
-                20<span className="text-primary-light">MAX</span>
-              </h1>
-            </motion.div>
-            
-            <motion.p 
-              variants={fadeInUp}
-              className="text-lead text-white mb-8 max-w-4xl mx-auto"
-            >
-              Engineering Excellence for the Future
-            </motion.p>
-            
-            <motion.p 
-              variants={fadeInUp}
-              className="text-lg mb-12 text-white max-w-2xl mx-auto"
-            >
-              Advanced CAD/CAE/CAM solutions for automotive and defense industries. 
-              Precision engineering powered by innovation and security.
-            </motion.p>
-            
-            <motion.div 
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <button 
-                className="btn btn-primary btn-lg"
-                onClick={() => navigate('/competencies')}
-              >
-                Explore Our Capabilities
-                <ArrowRight className="ml-2" size={20} />
-              </button>
-              <button 
-                className="btn btn-outline btn-lg"
-                onClick={() => navigate('/contact')}
-              >
-                Contact Us Today
-              </button>
-            </motion.div>
-          </motion.div>
-        </div>
-        
-        {/* Hero Pattern Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
-      </section>
+      {/* Hero Section with Grid Particles */}
+      <Hero
+        title={<>20<span className="text-primary-light">MAX</span></>}
+        subtitle="Engineering Excellence for the Future"
+        description="Advanced CAD/CAE/CAM solutions for automotive and defense industries. Precision engineering powered by innovation and security."
+        primaryCTA={{
+          text: "Explore Our Capabilities",
+          onClick: () => navigate('/competencies')
+        }}
+        secondaryCTA={{
+          text: "Contact Us Today",
+          onClick: () => navigate('/contact')
+        }}
+        backgroundType="gradient"
+        size="large"
+        enableParticles={true}
+      />
 
       {/* Stats Section */}
       <section className="py-16 bg-white">
@@ -304,40 +263,22 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-hero text-white">
-        <div className="container text-center">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.h2 variants={fadeInUp} className="text-display mb-6 text-white">
-              Ready to Engineer the Future?
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-lead text-white mb-8 max-w-2xl mx-auto">
-              Let's discuss how 20MAX can accelerate your next project with 
-              precision engineering and innovative solutions.
-            </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                className="btn btn-primary btn-lg"
-                onClick={() => navigate('/contact')}
-              >
-                Start Your Project Today
-                <ArrowRight className="ml-2" size={20} />
-              </button>
-              <button 
-                className="btn btn-outline btn-lg"
-                onClick={() => navigate('/experience')}
-              >
-                View Our Portfolio
-              </button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      {/* CTA Section with Particles */}
+      <Hero
+        title="Ready to Engineer the Future?"
+        description="Let's discuss how 20MAX can accelerate your next project with precision engineering and innovative solutions."
+        primaryCTA={{
+          text: "Start Your Project Today",
+          onClick: () => navigate('/contact')
+        }}
+        secondaryCTA={{
+          text: "View Our Portfolio",
+          onClick: () => navigate('/experience')
+        }}
+        backgroundType="gradient"
+        size="medium"
+        enableParticles={true}
+      />
 
       {/* Trust Indicators */}
       <section className="py-16 bg-white border-t">

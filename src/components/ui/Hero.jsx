@@ -1,5 +1,7 @@
+// src/components/ui/Hero.jsx
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import GridParticleBackground from './GridParticleBackground'
 
 const Hero = ({ 
   title, 
@@ -8,12 +10,21 @@ const Hero = ({
   primaryCTA, 
   secondaryCTA, 
   backgroundType = 'gradient',
-  size = 'large'
+  size = 'large',
+  enableParticles = false
 }) => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 }
+  }
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
   }
 
   const backgroundClasses = {
@@ -43,15 +54,22 @@ const Hero = ({
 
   return (
     <section className={`${backgroundClasses[backgroundType]} ${textClasses[backgroundType]} relative overflow-hidden`}>
-      {backgroundType === 'gradient' && (
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      {/* Particle Background - only for gradient backgrounds */}
+      {backgroundType === 'gradient' && enableParticles && (
+        <GridParticleBackground />
       )}
       
-      <div className={`container ${sizeClasses[size]} relative z-10`}>
+      {/* Dark overlay for gradient backgrounds */}
+      {backgroundType === 'gradient' && (
+        <div className="absolute inset-0 bg-black opacity-20" style={{ zIndex: 2 }}></div>
+      )}
+      
+      <div className={`container ${sizeClasses[size]} relative`} style={{ zIndex: 10 }}>
         <motion.div 
           className="text-center max-w-4xl mx-auto"
           initial="initial"
           animate="animate"
+          variants={staggerContainer}
         >
           <motion.h1 
             variants={fadeInUp}
@@ -108,8 +126,9 @@ const Hero = ({
         </motion.div>
       </div>
       
+      {/* Gradient fade to white at bottom */}
       {backgroundType === 'gradient' && (
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" style={{ zIndex: 3 }}></div>
       )}
     </section>
   )

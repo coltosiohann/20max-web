@@ -1,12 +1,27 @@
 // Updated src/pages/Contact.jsx - With working contact form
 import Hero from '../components/ui/Hero'
 import ContactForm from '../components/ui/ContactForm'
+import GridParticleBackground from '../components/ui/GridParticleBackground'
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Shield, Users, Zap } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 const Contact = () => {
   const navigate = useNavigate()
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  }
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
 
   const contactInfo = [
     {
@@ -66,12 +81,14 @@ const Contact = () => {
 
   return (
     <div>
+      {/* Hero Section with Grid Particles */}
       <Hero
         title="Let's Engineer the Future Together"
         subtitle="Contact 20MAX"
         description="Ready to discuss your engineering requirements? Contact our team for a detailed consultation and discover how we can accelerate your next project with precision engineering and innovative solutions."
         backgroundType="gradient"
         size="medium"
+        enableParticles={true}
       />
 
       {/* Contact Information */}
@@ -196,21 +213,26 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20 bg-gradient-hero text-white">
-        <div className="container text-center">
+      {/* Final CTA with Grid Particles */}
+      <section className="py-20 bg-gradient-hero text-white relative overflow-hidden">
+        <GridParticleBackground />
+        <div className="absolute inset-0 bg-black opacity-20" style={{ zIndex: 2 }}></div>
+        
+        <div className="container text-center relative" style={{ zIndex: 10 }}>
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={staggerContainer}
           >
-            <h2 className="text-display mb-6 text-white">Ready to Begin?</h2>
-            <p className="text-lead text-white mb-8 max-w-2xl mx-auto">
+            <motion.h2 variants={fadeInUp} className="text-display mb-6 text-white">
+              Ready to Begin?
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-lead text-white mb-8 max-w-2xl mx-auto opacity-90">
               Take the first step towards engineering excellence. Our team is ready to discuss 
               your project requirements and provide immediate technical consultation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            </motion.p>
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 className="btn btn-primary btn-lg"
                 onClick={scrollToContactForm}
@@ -223,7 +245,7 @@ const Contact = () => {
               >
                 View Our Capabilities
               </button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -232,74 +254,3 @@ const Contact = () => {
 }
 
 export default Contact
-
-// ================================================================
-
-// SETUP INSTRUCTIONS FOR FORMSPREE (Client-Only Solution)
-
-/*
-FORMSPREE SETUP - RECOMMENDED FOR IMMEDIATE FUNCTIONALITY
-
-1. Go to https://formspree.io and create a free account
-
-2. Create a new form:
-   - Click "New Form"
-   - Enter your email address (where you want to receive submissions)
-   - Choose a form name (e.g., "20MAX Contact Form")
-   - Copy the form ID (looks like: xvgpkjbl)
-
-3. Update your Contact.jsx file:
-   - Replace 'your-formspree-id' with your actual Formspree ID
-   - Example: const FORMSPREE_ID = 'xvgpkjbl'
-
-4. Test the form:
-   - Submit a test message through your contact form
-   - Check your email for the submission
-   - Verify it's working correctly
-
-5. Customize Formspree settings (optional):
-   - Set up custom thank you page
-   - Configure email notifications
-   - Add spam protection
-   - Set up webhooks for advanced integrations
-
-BENEFITS OF FORMSPREE:
-✅ No backend setup required
-✅ Instant email notifications
-✅ Spam protection included
-✅ Free tier available (50 submissions/month)
-✅ Professional email formatting
-✅ Works immediately without configuration
-
-FORMSPREE PRICING:
-- Free: 50 submissions/month
-- Bronze: $10/month - 1,000 submissions
-- Gold: $30/month - 5,000 submissions
-- Platinum: $100/month - 50,000 submissions
-
-ALTERNATIVE EMAIL SERVICES:
-- Netlify Forms (if hosting on Netlify)
-- EmailJS (client-side email sending)
-- Getform.io (similar to Formspree)
-- Basin.com (form backend service)
-*/
-
-// ================================================================
-
-// CSS Animation for loading spinner
-/*
-Add this to your src/index.css file:
-
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/

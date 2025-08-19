@@ -1,12 +1,27 @@
 // src/pages/Experience.jsx - Experience & Partnerships
 import Hero from '../components/ui/Hero'
 import TeamCard from '../components/ui/TeamCard'
+import GridParticleBackground from '../components/ui/GridParticleBackground'
 import { motion } from 'framer-motion'
 import { Users, Award, Target, Zap } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 const Experience = () => {
   const navigate = useNavigate()
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  }
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
 
   const teamMembers = [
     {
@@ -61,12 +76,14 @@ const Experience = () => {
 
   return (
     <div>
+      {/* Hero Section with Grid Particles */}
       <Hero
         title="Experience That Delivers"
         subtitle="Proven Track Record"
         description="20+ multidisciplinary engineers with extensive experience delivering projects in automotive, aerospace, and defense sectors. Experienced in OEM standards, documentation, and PLM tools with flexible engagement models."
         backgroundType="gradient"
         size="medium"
+        enableParticles={true}
       />
 
       <section className="py-20 bg-white">
@@ -124,26 +141,35 @@ const Experience = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-hero text-white">
-        <div className="container text-center">
+      {/* Ready to Partner Section with Grid Background */}
+      <section className="py-20 bg-gradient-hero text-white relative overflow-hidden">
+        <GridParticleBackground />
+        <div className="absolute inset-0 bg-black opacity-20" style={{ zIndex: 2 }}></div>
+        
+        <div className="container text-center relative" style={{ zIndex: 10 }}>
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={staggerContainer}
           >
-            <h2 className="text-display mb-4">Ready to Partner with 20MAX?</h2>
-            <p className="text-lead text-neutral-300 mb-8 max-w-2xl mx-auto">
+            <motion.h2 variants={fadeInUp} className="text-display mb-4 text-white">
+              Ready to Partner with 20MAX?
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-lead text-white mb-8 max-w-2xl mx-auto opacity-90">
               We are not just a supplier, we are your engineering ally. Trusted by high-demand industries, 
               based in Craiova, scalable, secure, and high-performance. Ready to start immediately.
-            </p>
-            <p className="text-xl mb-8">Let's design the future of safety together.</p>
-            <button 
+            </motion.p>
+            <motion.p variants={fadeInUp} className="text-xl mb-8 text-white">
+              Let's design the future of safety together.
+            </motion.p>
+            <motion.button 
+              variants={fadeInUp}
               className="btn btn-primary btn-lg"
               onClick={() => navigate('/contact')}
             >
               Start Your Project Today
-            </button>
+            </motion.button>
           </motion.div>
         </div>
       </section>

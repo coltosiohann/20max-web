@@ -16,6 +16,14 @@ const Competencies = () => {
     transition: { duration: 0.6 }
   }
 
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
   // CAD/CAE/CAM workflow process
   const engineeringProcess = [
     {
@@ -212,14 +220,14 @@ const Competencies = () => {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* Hero Section with Grid Particles */}
       <Hero
         title="Core Engineering Competencies"
         subtitle="Complete CAD/CAE/CAM Solutions"
         description="Advanced technical capabilities spanning the complete product development lifecycle. From initial concept through manufacturing support, we deliver precision engineering solutions that meet the most demanding industry standards."
         backgroundType="gradient"
         size="medium"
-        textColor="white"
+        enableParticles={true}
       />
 
       {/* Process Overview */}
@@ -294,9 +302,9 @@ const Competencies = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={staggerContainer}
           >
-            <div className="card">
+            <motion.div variants={fadeInUp} className="card">
               <div className="card-body">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
@@ -329,9 +337,9 @@ const Competencies = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="card">
+            <motion.div variants={fadeInUp} className="card">
               <div className="card-body">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
@@ -364,42 +372,27 @@ const Competencies = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-hero text-white">
-        <div className="container text-center">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <h2 className="text-display mb-6 text-white">Ready to Leverage Our Expertise?</h2>
-            <p className="text-lead text-white mb-8 max-w-2xl mx-auto">
-              Discover how our comprehensive CAD/CAE/CAM capabilities can accelerate your 
-              next engineering project with precision and efficiency.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                className="btn btn-primary btn-lg"
-                onClick={() => navigate('/contact')}
-              >
-                Discuss Your Project
-              </button>
-              <button 
-                className="btn btn-outline btn-lg"
-                onClick={() => navigate('/contact')}
-              >
-                Technical Consultation
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Call to Action with Grid Particles */}
+      <Hero
+        title="Ready to Leverage Our Expertise?"
+        description="Discover how our comprehensive CAD/CAE/CAM capabilities can accelerate your next engineering project with precision and efficiency."
+        primaryCTA={{
+          text: "Discuss Your Project",
+          onClick: () => navigate('/contact')
+        }}
+        secondaryCTA={{
+          text: "Technical Consultation",
+          onClick: () => navigate('/contact')
+        }}
+        backgroundType="gradient"
+        size="medium"
+        enableParticles={true}
+      />
     </div>
   )
 }
