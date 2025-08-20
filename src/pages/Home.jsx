@@ -1,5 +1,6 @@
-// src/pages/Home.jsx
+// src/pages/Home.jsx - With grid particles in each section
 import Hero from '../components/ui/Hero'
+import GridParticleBackground from '../components/ui/GridParticleBackground'
 import { motion } from 'framer-motion'
 import { ArrowRight, Shield, Zap, Target, CheckCircle, Users, Award } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -68,9 +69,12 @@ const Home = () => {
         enableParticles={true}
       />
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
-        <div className="container">
+      {/* Stats Section with Grid Background */}
+      <section className="py-16 bg-white relative overflow-hidden">
+        <GridParticleBackground />
+        <div className="absolute inset-0 bg-white bg-opacity-95" style={{ zIndex: 2 }}></div>
+        
+        <div className="container relative" style={{ zIndex: 10 }}>
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
             initial="initial"
@@ -84,8 +88,8 @@ const Home = () => {
                 variants={fadeInUp}
                 className="text-center"
               >
-                <div className="feature-icon mx-auto mb-4">
-                  <stat.icon size={24} />
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm border border-white border-opacity-50 shadow-lg">
+                  <stat.icon size={24} className="text-primary" />
                 </div>
                 <div className="text-display text-primary mb-2">{stat.number}</div>
                 <p className="text-neutral-600 font-medium">{stat.label}</p>
@@ -95,9 +99,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-neutral-50">
-        <div className="container">
+      {/* Features Section with Grid Background */}
+      <section className="py-20 bg-neutral-50 relative overflow-hidden">
+        <GridParticleBackground />
+        <div className="absolute inset-0 bg-neutral-50 bg-opacity-90" style={{ zIndex: 2 }}></div>
+        
+        <div className="container relative" style={{ zIndex: 10 }}>
           <motion.div 
             className="text-center mb-16"
             initial="initial"
@@ -125,10 +132,10 @@ const Home = () => {
               <motion.div 
                 key={index}
                 variants={fadeInUp}
-                className="feature-card"
+                className="bg-white bg-opacity-90 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-white border-opacity-50"
               >
-                <div className="feature-icon">
-                  <feature.icon size={32} />
+                <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
+                  <feature.icon size={32} className="text-primary" />
                 </div>
                 <h3 className="text-2xl font-semibold mb-4 text-neutral-900">{feature.title}</h3>
                 <p className="text-neutral-700 mb-6">{feature.description}</p>
@@ -147,9 +154,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="container">
+      {/* Process Section with Grid Background */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <GridParticleBackground />
+        <div className="absolute inset-0 bg-white bg-opacity-95" style={{ zIndex: 2 }}></div>
+        
+        <div className="container relative" style={{ zIndex: 10 }}>
           <motion.div 
             className="text-center mb-16"
             initial="initial"
@@ -193,9 +203,11 @@ const Home = () => {
               <motion.div 
                 key={index}
                 variants={fadeInUp}
-                className="process-step"
+                className="bg-white bg-opacity-80 backdrop-blur-sm rounded-lg p-6 shadow-lg text-center border border-white border-opacity-50"
               >
-                <div className="process-step-number">{process.step}</div>
+                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  {process.step}
+                </div>
                 <h3 className="text-xl font-semibold mb-3 text-neutral-900">{process.title}</h3>
                 <p className="text-neutral-700">{process.description}</p>
               </motion.div>
@@ -204,9 +216,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Industries Section */}
-      <section className="py-20 bg-neutral-50">
-        <div className="container">
+      {/* Industries Section with Grid Background */}
+      <section className="py-20 bg-neutral-50 relative overflow-hidden">
+        <GridParticleBackground />
+        <div className="absolute inset-0 bg-neutral-50 bg-opacity-90" style={{ zIndex: 2 }}></div>
+        
+        <div className="container relative" style={{ zIndex: 10 }}>
           <motion.div 
             className="text-center mb-16"
             initial="initial"
@@ -230,34 +245,40 @@ const Home = () => {
             viewport={{ once: true }}
             variants={staggerContainer}
           >
-            <motion.div variants={fadeInUp} className="card">
-              <div className="card-body">
+            <motion.div variants={fadeInUp} className="bg-white bg-opacity-90 backdrop-blur-sm rounded-lg shadow-lg border border-white border-opacity-50">
+              <div className="p-8">
                 <h3 className="text-2xl font-semibold mb-4 text-neutral-900">Automotive</h3>
                 <p className="text-neutral-700 mb-4">
                   Body-in-white design, chassis development, powertrain systems, 
                   and manufacturing tooling for OEMs and Tier 1 suppliers.
                 </p>
-                <ul className="spec-list">
-                  <li>Structural Analysis & Crashworthiness</li>
-                  <li>NVH Optimization</li>
-                  <li>Manufacturing Process Design</li>
+                <ul className="space-y-2">
+                  {['Structural Analysis & Crashworthiness', 'NVH Optimization', 'Manufacturing Process Design'].map((item, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-neutral-600">
+                      <CheckCircle size={16} className="text-primary mr-2 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="card">
-              <div className="card-body">
+            <motion.div variants={fadeInUp} className="bg-white bg-opacity-90 backdrop-blur-sm rounded-lg shadow-lg border border-white border-opacity-50">
+              <div className="p-8">
                 <h3 className="text-2xl font-semibold mb-4 text-neutral-900">Defense</h3>
                 <p className="text-neutral-700 mb-4">
                   Advanced systems for defense applications including remote weapon 
                   stations and unmanned ground systems.
                 </p>
-                <ul className="spec-list">
-                  <li>Classified Project Capabilities</li>
-                  <li>Ruggedized System Design</li>
-                  <li>Full Lifecycle Support</li>
+                <ul className="space-y-2">
+                  {['Classified Project Capabilities', 'Ruggedized System Design', 'Full Lifecycle Support'].map((item, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-neutral-600">
+                      <CheckCircle size={16} className="text-primary mr-2 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
-              </div>
+                </div>
             </motion.div>
           </motion.div>
         </div>
@@ -280,9 +301,12 @@ const Home = () => {
         enableParticles={true}
       />
 
-      {/* Trust Indicators */}
-      <section className="py-16 bg-white border-t">
-        <div className="container">
+      {/* Trust Indicators with Grid Background */}
+      <section className="py-16 bg-white border-t relative overflow-hidden">
+        <GridParticleBackground />
+        <div className="absolute inset-0 bg-white bg-opacity-95" style={{ zIndex: 2 }}></div>
+        
+        <div className="container relative" style={{ zIndex: 10 }}>
           <motion.div 
             className="text-center"
             initial="initial"
@@ -293,17 +317,12 @@ const Home = () => {
             <p className="text-small text-neutral-600 mb-8">
               Trusted by leading organizations in automotive and defense sectors
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              {/* Placeholder for company logos */}
-              <div className="bg-neutral-200 rounded-lg px-8 py-4 text-neutral-500 font-medium">
-                Ford Otosan
-              </div>
-              <div className="bg-neutral-200 rounded-lg px-8 py-4 text-neutral-500 font-medium">
-                OEM Partners
-              </div>
-              <div className="bg-neutral-200 rounded-lg px-8 py-4 text-neutral-500 font-medium">
-                Defense Contractors
-              </div>
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              {['Ford Otosan', 'OEM Partners', 'Defense Contractors'].map((company, index) => (
+                <div key={index} className="bg-white bg-opacity-80 backdrop-blur-sm rounded-lg px-8 py-4 text-neutral-500 font-medium shadow-lg border border-white border-opacity-50">
+                  {company}
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
