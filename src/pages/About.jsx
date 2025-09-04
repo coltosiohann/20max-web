@@ -27,7 +27,7 @@ const About = () => {
     {
       icon: Target,
       title: "Precision Engineering",
-      description: "Every detail matters in engineering. We deliver solutions with uncompromising accuracy and technical excellence.",
+      description: "Every detail matters in engineering! We deliver solutions with uncompromising accuracy and technical excellence.",
       highlights: ["OEM-Grade Quality", "Technical Precision", "Industry Standards"]
     },
     {
